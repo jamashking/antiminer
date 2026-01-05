@@ -20,10 +20,10 @@ jobs:
         uses: NuGet/setup-nuget@v2
 
       - name: Restore NuGet packages
-        run: nuget restore Anti-Miner.sln
+        run: nuget restore Anti-Miner-master/Anti-Miner.sln
 
       - name: Build solution
-        run: msbuild Anti-Miner.sln /p:Configuration=Release /p:Platform="Any CPU"
+        run: msbuild Anti-Miner-master/Anti-Miner.sln /p:Configuration=Release /p:Platform="Any CPU"
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
