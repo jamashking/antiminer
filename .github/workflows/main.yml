@@ -16,11 +16,14 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
       - name: Restore NuGet packages
         run: nuget restore Anti-Miner.sln
 
       - name: Build solution
-        run: msbuild Anti-Miner.sln /p:Configuration=Release
+        run: msbuild Anti-Miner.sln /p:Configuration=Release /p:Platform="Any CPU"
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
